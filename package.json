@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "postcss css/*.css --use autoprefixer -d build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dpawson905/grid-portfolio.git"
+    "url": "https://github.com/dpawson905/grid-portfolio.git"
   },
   "author": "Kevin Powell",
   "license": "MIT",
@@ -17,8 +18,12 @@
   },
   "homepage": "https://github.com/dpawson905/grid-portfolio#readme",
   "devDependencies": {
+    "autoprefixer": "^9.1.5",
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^3.1.0",
+    "postcss-cli": "^6.0.0"
   }
 }
