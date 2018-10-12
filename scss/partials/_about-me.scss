@@ -1,14 +1,14 @@
 .about-me {
-  @extend %container;
-  @extend %clearfix;
-  margin-top: 3em;
+  @include container;
+  @include clearfix;
+
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 .about-img {
   max-height: 25em;
-  box-shadow: 3px 2px 5px $dark-gray;
-  border-radius: 3px;
-  display: block;
+  border-radius: 50%;
 
   @media (min-width: 42em) {
     float: left;
@@ -17,7 +17,7 @@
 }
 
 .about-title {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
 }
 
 .about-subtitle {
@@ -27,21 +27,42 @@
 @supports (display: grid) {
   .about-me {
     display: grid;
-    grid-template-columns:
-      [port-start] minmax(6em, 1fr) [name-start] minmax(6em, 1fr)
-      [img-end] 2fr [port-end];
+    grid-template-columns: [port-start] minmax(6em, 1fr) [name-start] minmax(
+        6em,
+        1fr
+      ) [img-end] 2fr [port-end];
+    grid-column-gap: 0.5em;
   }
+
   .about-img {
     grid-column: port / img;
     grid-row: 1 / 2;
+
+    @include mq {
+      grid-row: 1 / 4;
+    }
   }
+
   .about-title {
     grid-column: name / port;
     grid-row: 1 / 2;
     align-self: end;
   }
+
   .about-subtitle,
   .about-text {
     grid-column: port / port;
+
+    @include mq {
+      grid-column: img-end / port-end;
+    }
+  }
+
+  .about-subtitle {
+    grid-row: 2 / 3;
+  }
+
+  .about-text {
+    grid-row: 3 / 4;
   }
 }

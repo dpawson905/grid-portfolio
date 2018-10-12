@@ -1,15 +1,12 @@
 .welcome {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.2),
-      rgba(100, 100, 100, 0.2)
-    ),
-    url(../img/header-bg.png);
+  background-image: url(../img/header-bg.png);
   background-size: cover;
   background-position: center;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   h1 {
     font-size: 1.5rem;
@@ -17,11 +14,17 @@
     color: $dark-blue;
     line-height: 2;
     text-align: center;
+    @include mq {
+      font-size: 3vw;
+    }
 
     span {
       @include sans-serif($fs: 5.5rem, $color: $accent);
       display: block;
-      padding-left: 0.2em;
+
+      @include mq {
+        font-size: 10vw;
+      }
     }
 
     &::before,
